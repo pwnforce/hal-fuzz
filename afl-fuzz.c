@@ -3031,7 +3031,10 @@ static void pivot_inputs(void) {
 
 static u8* describe_op(u8 hnb) {
 
-  static u8 ret[256];
+  static u8 ret[512];
+   /* This is not really safe, but just assume time() succeeds */
+  snprintf(ret, 512, "time:%ld", time(NULL));
+ 
 
   if (syncing_party) {
 
