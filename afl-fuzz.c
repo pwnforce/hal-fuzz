@@ -3038,11 +3038,11 @@ static u8* describe_op(u8 hnb) {
 
   if (syncing_party) {
 
-    sprintf(ret, "sync:%s,src:%06u", syncing_party, syncing_case);
+    sprintf(ret + strlen(ret), "sync:%s,src:%06u", syncing_party, syncing_case);
 
   } else {
 
-    sprintf(ret, "src:%06u", current_entry);
+    sprintf(ret + strlen(ret), "src:%06u", current_entry);
 
     if (splicing_with >= 0)
       sprintf(ret + strlen(ret), "+%06u", splicing_with);
